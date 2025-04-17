@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chronic Kidney Disease Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2A9D8F;
+            --secondary: #264653;
+            --accent: #E9C46A;
+            --text: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://radiusnm.com/wp-content/uploads/2022/09/dexmedetomidinerenalprotection-1200x669.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            animation: slideDown 1s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.8s ease;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            animation: slideIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            animation: pulse 2s infinite;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            animation: slideUp 0.8s ease;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Delay animations for inputs */
+        .input-group:nth-child(1) { animation-delay: 0.2s; }
+        .input-group:nth-child(2) { animation-delay: 0.3s; }
+        .input-group:nth-child(3) { animation-delay: 0.4s; }
+        .input-group:nth-child(4) { animation-delay: 0.5s; }
+        .input-group:nth-child(5) { animation-delay: 0.6s; }
+        .input-group:nth-child(6) { animation-delay: 0.7s; }
+        .input-group:nth-child(7) { animation-delay: 0.8s; }
+        .input-group:nth-child(8) { animation-delay: 0.9s; }
+        .input-group:nth-child(9) { animation-delay: 1.0s; }
+        .input-group:nth-child(10) { animation-delay: 1.1s; }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .form-container {
+                width: 90%;
+                padding: 1.5rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chronic Kidney Disease Prediction</h1>
+    </div>
+
+    <form action="{{ url_for('predict') }}" method="POST" class="form-container">
+        <div class="form-grid">
+            <!-- Left Column -->
+            <div class="form-column">
+                <div class="input-group">
+                    <label for="age">Age (Years)</label>
+                    <input type="number" id="age" name="age" min="0" max="120" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="sc">Serum Creatinine (mg/dL)</label>
+                    <input type="number" id="sc" name="sc" step="0.01" min="0" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="sg">Specific Gravity (1.000-1.050)</label>
+                    <input type="number" id="sg" name="sg" step="0.005" min="1.000" max="1.050" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="htn">Hypertension (0=No, 1=Yes)</label>
+                    <input type="number" id="htn" name="htn" min="0" max="1" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="hemo">Hemoglobin (g/dL)</label>
+                    <input type="number" id="hemo" name="hemo" step="0.1" min="0" required>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="form-column">
+                <div class="input-group">
+                    <label for="dm">Diabetes Mellitus (0=No, 1=Yes)</label>
+                    <input type="number" id="dm" name="dm" min="0" max="1" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="al">Albumin (0-5)</label>
+                    <input type="number" id="al" name="al" min="0" max="5" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="appet">Appetite (0=Poor, 1=Good)</label>
+                    <input type="number" id="appet" name="appet" min="0" max="1" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="rc">RBC Count (millions/cmm)</label>
+                    <input type="number" id="rc" name="rc" step="0.01" min="0" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="pc">Pus Cell (0=Normal, 1=Abnormal)</label>
+                    <input type="number" id="pc" name="pc" min="0" max="1" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Predict Risk</button>
+    </form>
+
+    <footer>
+        <p>©2025 KLNCE | Medical Predictive System</p>
+    </footer>
+</body>
+</html>
